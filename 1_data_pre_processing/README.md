@@ -1,7 +1,7 @@
-## EEG Pre-Processing
+# EEG Pre-Processing
 The following scripts automates the objective parts of the data pre-processing in EEGLAB (filtering, downsampling). User input is still required to select and remove noisy channels, to select ICA components to remove, and to remove noisy epochs. 
 
-# Protocol
+## Protocol
 * Load data: If you are loading the raw mff file, comment out Option 2. If you are loading a set file, comment out Option 1. 
 * Read channel locations (OPTIONAL): This option should only be uncommented if you are NOT using custom channel locations. For this iteration, custom channel locations were used for all participants except TDCS6. 
 * Filtering: notch at 60 Hz, high-pass at 0.1 Hz, low-pass at 50 Hz
@@ -14,7 +14,8 @@ The following scripts automates the objective parts of the data pre-processing i
 * Segment the data: Segment the data into eyes closed and eyes open epochs using event markers. 
 * Visually inspect the data: Plot channel data and manually remove segments which contain large muscle or movement artifacts. 
 
-# Dependencies
+## Dependencies
+* MATLAB 2018a or above
 * EEGLAB (v14.1.2)
 * MFFMatlabIO plugin for EEGLAB (v3.0)
 * firfilt plugin for EEGLAB (v1.6.2)
