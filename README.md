@@ -15,7 +15,8 @@ The full dataset can be found on the BIAPT lab internal server.
 # Repository Structure
 Each folder represents a new iteration on the data analysis approach. The first iterations can be used to replicate the data reported in Danielle's thesis, including statistical analysis and figure generation. Each folder contains its own README.md file with instructions on how to run the code and replicate results. 
 
-Iterations:
+Iteration 1: Thesis
+* 1_data_pre_processing: cleaning of data
 * 1_scalp_analysis_thesis: scalp-level analysis of the data
 * 1_source_analysis_thesis: source-localized analysis of the data
 
