@@ -54,25 +54,10 @@ The structure of this repository and basis of this code were modified from the w
 			- etc.
 		* etc.
 	* graph theory
-		* TDCS1
-            	* TDCS2
-          	* etc.
-        * hubs
-            	* TDCS1
-         	* TDCS2
-            	* etc.
-        * motif
-            	* TDCS1
-            	* TDCS2
-            	* etc.
-        * power
-            	* TDCS1
-            	* TDCS2
-            	* etc.
-        * wpli
-            	* TDCS1
-            	* TDCS2
-            	* etc.
+	* hubs
+	* motif
+	* power
+	* wpli
 3. In MATLAB, add the current folder to your path 
 4. Edit `setup_experiments.m` script to setup the experiment environment properly.
 5.  Run your desired analyses one by one or include them in a script to run automatically. Note that you will need to run step_3a_threshold_sweep and manually write the thresholds output to the command window in `setup_experiments.m` prior to running step_3b or step_3c. 
