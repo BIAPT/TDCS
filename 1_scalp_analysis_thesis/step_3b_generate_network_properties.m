@@ -14,7 +14,7 @@ clear % to keep only what is needed for this experiment
 setup_experiments % see this file to edit the experiments
 
 % Create the output directory
-graph_output_path = mkdir_if_not_exist(output_path,'graph theory_max_custom_threshold');
+graph_output_path = mkdir_if_not_exist(output_path,'graph theory');
 wpli_input_path = strcat(output_path,filesep,'wpli');
 
 % Iterate over the participants
@@ -96,14 +96,11 @@ for p = 1:length(participants)
             
             % Normalize network properties against random network and save into
             % structure and into disk
-            %result_graph = struct();
             
             result_graph.clustering_coef(1,s) = nanmean(clustering_coef) / global_random_clustering_coef; % normalized clustering coefficient
             result_graph.geff(1,s) = geff / rgeff;  % global efficiency
             result_graph.bsw(1,s) = result_graph.clustering_coef(1,s)*result_graph.geff(1,s);
             result_graph.mod(1,s) = mod; % Note: modularity doesn't need to be normalized against random networks
-            
-            %save(graph_state_filename, 'result_graph');
             
         end
         result_graph.channels_location = channels_location;

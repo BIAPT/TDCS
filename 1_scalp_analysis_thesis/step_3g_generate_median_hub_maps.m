@@ -17,7 +17,7 @@ stim = [2 0 1; 1 2 0; 0 1 2; 1 2 0; 2 0 1; 1 2 0; 0 1 2; 0 1 2; 2 0 1; 1 2 0; ..
 % ^ remove these rows when computing the average/median
 
 % masterlist of 97 DEFAULT channel locations
-load('C:\Users\dn-xo\OneDrive - McGill University\Research\BIAPT Lab\Thesis\TDCS\Scalp analysis\utils\EGI128_scalp_default.mat')
+load('utils\EGI128_scalp_default.mat')
 
 % Create average result struct
 avg_data = struct();
@@ -53,7 +53,7 @@ for p = 1:length(participants)
     participant = participants{p};
     disp(strcat("Participant :", participant));
     
-    hubs_input_path = strcat(output_path,filesep,'hubs_max_custom_threshold',filesep,participant);
+    hubs_input_path = strcat(output_path,filesep,'hubs',filesep,participant);
     
     % Iterate over the sessions
     for t = 1:length(sessions)
@@ -151,7 +151,7 @@ avg_data.stim1.med_degree = median(avg_data.stim1.degree(1:11,:)); %remove rows 
 avg_data.stim2.med_degree = median(avg_data.stim2.degree([1:10,12,15],:)); %remove rows 11, 13, 14
 
 %Save result
-save(strcat(output_path,filesep,'hubs_max_custom_threshold',filesep,'average_hubs_contrasts_BvP30.mat'),'avg_data')
+save(strcat(output_path,filesep,'hubs',filesep,'average_hubs_contrasts_BvP30.mat'),'avg_data')
 
 %Figure
 figure
@@ -169,7 +169,7 @@ for i = 1:3
     end
 end
 
-output_figure_path = strcat(output_path,filesep,'hubs_max_custom_threshold',filesep,'average_hubs_contrasts_BvP30.fig');
+output_figure_path = strcat(output_path,filesep,'hubs',filesep,'average_hubs_contrasts_BvP30.fig');
 savefig(output_figure_path)
 close(gcf)
 
@@ -188,7 +188,7 @@ for i = 1:3
     end
 end
 
-output_figure_path = strcat(output_path,filesep,'hubs_max_custom_threshold',filesep,'median_hubs_contrasts_BvP30.fig');
+output_figure_path = strcat(output_path,filesep,'hubs',filesep,'median_hubs_contrasts_BvP30.fig');
 savefig(output_figure_path)
 close(gcf)
 
@@ -204,7 +204,7 @@ for i = 1:2
     end
 end
 
-output_figure_path = strcat(output_path,filesep,'hubs_max_custom_threshold',filesep,'average_hubs_contrasts_BvP30_minus_sham.fig');
+output_figure_path = strcat(output_path,filesep,'hubs',filesep,'average_hubs_contrasts_BvP30_minus_sham.fig');
 savefig(output_figure_path)
 close(gcf)
 

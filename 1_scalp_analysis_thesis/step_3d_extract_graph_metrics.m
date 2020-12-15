@@ -15,7 +15,7 @@ close all
 setup_experiments % see this file to edit the experiments
 
 % Create power output directory
-graph_output_path = mkdir_if_not_exist(output_path,'graph theory_max_custom_threshold');
+graph_output_path = mkdir_if_not_exist(output_path,'graph theory');
 
 % Create variables for output 
 id = {};
@@ -67,4 +67,4 @@ end
 
 %create table of results
 graph_metrics = table(id,ses,sta,geff,cc,mod,bsw);
-writetable(graph_metrics,'graph_metrics_T1_max_custom_threshold.csv')
+writetable(graph_metrics,graph_param.file_name)

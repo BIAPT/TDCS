@@ -12,7 +12,7 @@ stim = [2 0 1; 1 2 0; 0 1 2; 1 2 0; 2 0 1; 1 2 0; 0 1 2; 0 1 2; 2 0 1; 1 2 0; ..
     1 NaN NaN; 2 NaN NaN; 0 NaN NaN; 0 NaN NaN; 2 NaN NaN];
 
 % masterlist of 97 DEFAULT channel locations
-load('C:\Users\dn-xo\OneDrive - McGill University\Research\BIAPT Lab\Thesis\TDCS\Scalp analysis\utils\EGI128_scalp_default.mat')
+load('utils\EGI128_scalp_default.mat')
 
 % Create average result struct
 avg_data = struct();

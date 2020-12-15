@@ -21,7 +21,7 @@ for p = 1:length(participants)
     participant = participants{p};
     disp(strcat("Participant :", participant));
     
-    hubs_input_path = strcat(output_path,filesep,'hubs_max_custom_threshold',filesep,participant);
+    hubs_input_path = strcat(output_path,filesep,'hubs',filesep,participant);
     
     % Iterate over the sessions
     for t = 1:length(sessions)

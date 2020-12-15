@@ -12,7 +12,7 @@ close all
 setup_experiments % see this file to edit the experiments
 
 % Create power output directory
-hub_output_path = mkdir_if_not_exist(output_path,'hubs_max_custom_threshold');
+hub_output_path = mkdir_if_not_exist(output_path,'hubs');
 
 % Create variables for output 
 id = {};
@@ -96,4 +96,4 @@ end
 
 %create table of results
 hub_metrics = table(id,ses,sta,deg_cs);
-writetable(hub_metrics,'hub_metrics_T1_max_custom_threshold.csv')
+writetable(hub_metrics,hubs_param.file_name)

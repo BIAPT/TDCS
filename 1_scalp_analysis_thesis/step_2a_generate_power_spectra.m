@@ -22,7 +22,6 @@ power_output_path = mkdir_if_not_exist(output_path,'power');
 avg_data = struct();
 avg_data.power_td = zeros(length(states),97);
 avg_data.power_count = zeros(length(states),97);
-avg_data.avg_power_td = zeros(length(states),97);
 avg_data.location = -1;
 
 %% Loop over participants, sessions and states
@@ -151,63 +150,9 @@ for p = 1:length(participants)
                 savefig(output_figure_path)
                 close(gcf)
             
-            end
-            
-            %% Averaging topographic distribution (across participants)
-            
-            %TO DO: Collect data for average topography, if applicable
-            if power_param.average
-                
-                if(isstruct(avg_data.location) == 0)
-                    avg_data.location = result_td.data.filt_location; %assumes first participant in average has all 129 channels
-                end
-                
-                for e_i=1:length(avg_data.location)
-                    current_label = avg_data.location(e_i).labels;
-                    is_found = 0;
-                    for j=1:length(recording.channels_location)
-                        if(strcmp(recording.channels_location(j).labels, current_label))
-                            is_found = j;
-                            break;
-                        end
-                    end
-                    
-                    if(is_found ~= 0)
-                        j = is_found;
-                        avg_data.power_td(s,e_i) = avg_data.power_td(s, e_i) +  result_td.data.filt_power(j);
-                        avg_data.power_count(s,e_i) = avg_data.power_count(s,e_i) + 1;
-                    end
-                end
-                
-            end
-        end
-        
+            end 
+        end        
     end
-end
-
-%% Figure: average topographic distribution (across participants)
-
-%TO DO: Generate the average topography figure, if applicable
-if power_param.average
-    
-    for s = 1:length(states)
-        for c_i = 1:99
-            avg_data.avg_power_td(s,c_i) = avg_data.power_td(s,c_i) ./ avg_data.power_count(c_i);
-        end
-    end
-    
-    
-    figure
-    for e_i = 1:length(states)
-        avg_data.normalized_avg_power_td = (avg_data.avg_power_td(e_i,:)-mean(avg_data.avg_power_td(e_i,:),2))./std(avg_data.avg_power_td(e_i,:));
-        subplot(ceil(length(states)/3),3,e_i)
-        title(strcat("Power at ",states{e_i}))
-        topographic_map(avg_data.normalized_avg_power_td,avg_data.location);
-    end
-    save(strcat(power_output_path,filesep,'_average_power.mat'), 'avg_data');
-    output_figure_path = strcat(power_output_path,filesep,'_average_power.fig');
-    savefig(output_figure_path)
-    
 end
 
 %% Helper functions 

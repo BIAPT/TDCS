@@ -118,4 +118,4 @@ end
 %create table of results
 power_metrics = table(id,ses,sta,abs_peak_alpha,abs_delta,abs_theta,...
     abs_alpha,abs_beta,rel_delta,rel_theta,rel_alpha,rel_beta);
-writetable(power_metrics,'power_metrics_T1_EC.csv')
+writetable(power_metrics,power_param.file_name)

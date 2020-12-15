@@ -3,8 +3,6 @@
     Modified by Danielle Nadin 2020-02-15
 
     Generate network hubs based on previously calculated wPLI matrix.
-    NOTE: AVERAGE ASSUMES THE FIRST PARTICIPANT IN THE AVERAGE (MDFA03) HAS
-    ALL 129 CHANNELS. AVERAGING WILL NOT WORK WITH ANOTHER DATASET
 
     * Warning: This experiment use the setup_experiments.m script to
     load variables. Therefore if you are trying to edit this code and you
@@ -17,7 +15,7 @@ clear % to keep only what is needed for this experiment
 setup_experiments % see this file to edit the experiments
 
 % Create the hubs output directory
-hubs_output_path = mkdir_if_not_exist(output_path,'hubs_max_custom_threshold');
+hubs_output_path = mkdir_if_not_exist(output_path,'hubs');
 wpli_input_path = strcat(output_path,filesep,'wpli');
 
 % Create average result struct
@@ -86,57 +84,9 @@ for p = 1:length(participants)
                 output_figure_path = strcat(hubs_participant_output_path,filesep,state,'_hubs.fig');
                 savefig(output_figure_path)
                 close(gcf)
-            end
-            
-            %Collect data for average, if applicable
-            if hubs_param.average
-                
-                if(isstruct(avg_data.location) == 0)
-                    avg_data.location = channels_location; %assumes first participant in average has all 129 channels
-                end
-                
-                for e_i=1:length(avg_data.location)
-                    current_label = avg_data.location(e_i).labels;
-                    is_found = 0;
-                    for j=1:length(channels_location)
-                        if(strcmp(channels_location(j).labels, current_label))
-                            is_found = j;
-                            break;
-                        end
-                    end
-                    
-                    if(is_found ~= 0)
-                        j = is_found;
-                        avg_data.degree(s,e_i) = avg_data.degree(s, e_i) +  result_hubs.degree(j);
-                        avg_data.degree_count(s,e_i) = avg_data.degree_count(s,e_i) + 1;
-                    end
-                end
-                
-            end
+            end 
         end
     end
-end
-
-%Generate the average figure, if applicable
-if hubs_param.average && hubs_param.figure
-    
-    for s = 1:length(states)
-        for c_i = 1:99
-            avg_data.avg_degree(s,c_i) = avg_data.degree(s,c_i) ./ avg_data.degree_count(c_i);
-        end
-    end
-    
-    figure
-    for e_i = 1:length(states)
-        avg_data.normalized_avg_degree = (avg_data.avg_degree(e_i,:)-mean(avg_data.avg_degree(e_i,:),2))./std(avg_data.avg_degree(e_i,:));
-        subplot(ceil(length(states)/3),3,e_i)
-        title(strcat("Hubs at ",states{e_i}))
-        topographic_map(avg_data.normalized_avg_degree,avg_data.location);
-    end
-    save(strcat(hubs_output_path,filesep,'_average_hubs.mat'), 'avg_data');
-    output_figure_path = strcat(hubs_output_path,filesep,'_average_hubs.fig');
-    savefig(output_figure_path)
-    
 end
 
 function topographic_map(data,location)

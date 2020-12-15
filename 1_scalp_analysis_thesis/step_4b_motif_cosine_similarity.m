@@ -103,4 +103,4 @@ end
 
 %create table of results
 motif_metrics = table(id,ses,sta,motif1_cs,motif7_cs);
-writetable(motif_metrics,'motif_metrics_T2_T3_EC.csv')
+writetable(motif_metrics,motif_param.file_name)

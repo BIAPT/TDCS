@@ -1,13 +1,13 @@
 %{
     Danielle Nadin 2020-04-30
-    Modified for healthy tDC S analysis - automate figure generation. 
+    Modified for healthy tDCS analysis - automate figure generation. 
   
     Yac ine Mah did 202  0- 01-08
-    This script will  calcul  ate the wpli and the dpli matrices (at alpha)
-    that are ne  ede d to run the subsequent analysis. The parameters for the
-    analysis can be  found in this script
+    This script will  calculate the wpli and the dpli matrices (at alpha)
+    that are needed to run the subsequent analysis. The parameters for the
+    analysis can be found in this script
 
-    * Warning: This exp  eriment use the setup_experiments.m script to 
+    * Warning: This exp eriment use the setup_experiments.m script to 
     load variables. Therefore if you are trying to edit this code and you
     don't know what a variable mean take a look at the setup_experiments.m
     script.
