@@ -18,6 +18,5 @@ Each folder represents a new iteration on the data analysis approach. The first 
 Iteration 1: Thesis
 * **1_data_pre_processing**: cleaning of data
 * **1_scalp_analysis_thesis**: scalp-level analysis of the data
-* **1_source_analysis_thesis**: source-localized analysis of the data
 
 
