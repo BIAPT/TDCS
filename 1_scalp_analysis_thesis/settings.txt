@@ -1,2 +1,2 @@
-raw_data_path=D:\TDCS\Data
-output_path=D:\TDCS\Scalp analysis\Delta
+raw_data_path=E:\Danielle's Data
+output_path=C:\Users\dn-xo\OneDrive - McGill University\Research\BIAPT Lab\Thesis\TDCS\Scalp analysis\Alpha
