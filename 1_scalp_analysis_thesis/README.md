@@ -6,10 +6,24 @@ The structure of this repository and basis of this code were modified from the w
 * `settings.txt`: configure data input and output paths
 * `setup_project.m`: download the required version of NeuroAlgo
 * `setup_experiments.m`: configure analysis parameters
-* step_1: constructing the wPLI and dPLI matrices
-* step_2: power analysis
-* step_3: binary graph theory analysis
-* step_4: motif analysis
+* step_1a: construct wPLI and dPLI matrices and plot individual subject matrices
+* step_1b: compute contrast matrices between baseline and post30
+* step_1c: generate average contrast matrix **This code was not complete, issues due to different number of channels across participants and time points**
+* step_2a: generate spectrogram and power spectral density and plot spectrograms/bar graphs
+* step_2b: extract absolute and relative power values and read to csv
+* step_2c: generate contrasts in topographic power between baseline and post30
+* step_2d: generate map of median change in power topography
+* step_3a: find optimal threshold for an individual wPLI matrix
+* step_3b: generate global graph theoretical network properties and plot individual subject bar graphs
+* step_3c: generate node degree and plot individual subject topographic maps
+* step_3d: export global graph theoretical network properties including node degree to csv
+* step_3e: compute cosine similarity of baseline and post30 node degree and export to csv
+* step_3f: generate contrasts in topography of node degree between baseline and post30
+* step_3g: generate map of median change in node degree topography
+* step_4a: generate 3-node funcitonal motifs and plot individual subject topographic maps
+* step_4b: compute cosine similarity of baseline and post30 motif frequency and export to csv
+* step_4c: generate constrasts in topography of motif frequency between baseline and post30
+* step_4d: generate map of median change in motif frequency topography
 
 ## Dependencies
 * **MATLAB 2018a** and above
@@ -59,5 +73,5 @@ The structure of this repository and basis of this code were modified from the w
 	* power
 	* wpli
 3. In MATLAB, add the current folder to your path 
-4. Edit `setup_experiments.m` script to setup the experiment environment properly.
-5.  Run your desired analyses one by one or include them in a script to run automatically. Note that you will need to run step_3a_threshold_sweep and manually write the thresholds output to the command window in `setup_experiments.m` prior to running step_3b or step_3c. 
+4. Edit `setup_experiments.m` script to setup the experiment variables according to your needs.
+5.  Run your desired analyses one by one or include them in a script to run automatically. Note that you will need to run step_3a_threshold_sweep and manually write the thresholds output to the command window in `setup_experiments.m` prior to running step_3b to step_3g. Step 1 must be run before Steps 3 or 4. Step 2 can be run independently.
