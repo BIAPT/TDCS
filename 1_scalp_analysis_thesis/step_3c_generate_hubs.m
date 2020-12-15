@@ -17,7 +17,7 @@ clear % to keep only what is needed for this experiment
 setup_experiments % see this file to edit the experiments
 
 % Create the hubs output directory
-hubs_output_path = mkdir_if_not_exist(output_path,'hubs');
+hubs_output_path = mkdir_if_not_exist(output_path,'hubs_max_custom_threshold');
 wpli_input_path = strcat(output_path,filesep,'wpli');
 
 % Create average result struct

@@ -7,8 +7,8 @@
 
 clear;
 setup_experiments % see this file to edit the experiments
-participant = 'TDCS15';
-session = 'T1';
+participant = 'TDCS11';
+session = 'T3';
 state = 'baseline';
 
 %Import wpli data

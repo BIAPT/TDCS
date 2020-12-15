@@ -14,7 +14,7 @@ clear % to keep only what is needed for this experiment
 setup_experiments % see this file to edit the experiments
 
 % Create the output directory
-graph_output_path = mkdir_if_not_exist(output_path,'graph theory');
+graph_output_path = mkdir_if_not_exist(output_path,'graph theory_max_custom_threshold');
 wpli_input_path = strcat(output_path,filesep,'wpli');
 
 % Iterate over the participants
